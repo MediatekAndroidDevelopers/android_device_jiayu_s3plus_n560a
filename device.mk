@@ -198,6 +198,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libnl_2 \
     libtinyxml
+    
+# Browser
+PRODUCT_PACKAGES += \
+    Gello
 
 # FMRadio
 PRODUCT_PACKAGES += \
@@ -225,6 +229,9 @@ PRODUCT_PACKAGES += \
     make_ext4fs \
     resize2fs \
     setup_fs
+    
+# Sensor Calibration
+PRODUCT_PACKAGES += libem_sensor_jni
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=8
 

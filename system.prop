@@ -58,7 +58,7 @@ qemu.hw.mainkeys=1
 ro.kernel.zio=38,108,105,16
 
 # Disable dirty region for Mali
-debug.hwui.render_dirty_regions=false
+debug.hwui.render_dirty_regions=true
 
 #qinhai change density
 ro.sf.lcd_density=480
@@ -72,7 +72,7 @@ ro.build.device.ninur=64687
 
 persist.tone_relative_volume=100
 ro.mediatek.chip_ver=S01
-ro.mediatek.version.release=ALPS.L1.MP3.V2_VANZO6753.65U.L1_P45
+ro.mediatek.version.release=M
 ro.mediatek.platform=MT6735
 ro.telephony.sim.count=2
 persist.radio.default.sim=0
@@ -97,6 +97,7 @@ persist.mtk.wcn.combo.chipid=-1
 persist.mtk.combo.coredump=no
 drm.service.enabled=true
 fmradio.driver.enable=1
+ro.mtk_fm_short_antenna_support=1
 ril.first.md=1
 ril.flightmode.poweroffMD=1
 ril.telephony.mode=0
