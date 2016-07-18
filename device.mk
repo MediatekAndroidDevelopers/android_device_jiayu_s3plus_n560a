@@ -78,7 +78,8 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/meta_init.modem.rc:root/meta_init.modem.rc \
     $(LOCAL_PATH)/rootdir/meta_init.project.rc:root/meta_init.project.rc \
     $(LOCAL_PATH)/rootdir/meta_init.rc:root/meta_init.rc \
-    $(LOCAL_PATH)/rootdir/init.performance.rc:root/init.performance.rc
+    $(LOCAL_PATH)/rootdir/init.performance.rc:root/init.performance.rc \
+    $(LOCAL_PATH)/rootdir/ueventd.mt6735.rc:root/ueventd.mt6735.rc
 
 # Telecom
 PRODUCT_COPY_FILES += \
@@ -220,6 +221,17 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     Snap
 
+# Messaging
+PRODUCT_PACKAGES += \
+    messaging
+
+# Lights
+PRODUCT_PACKAGES += \
+    lights.mt6753
+
+# Sensor Calibration
+PRODUCT_PACKAGES += libem_sensor_jni
+
 # Filesystem management tools
 PRODUCT_PACKAGES += \
     e2fsck \
@@ -229,9 +241,6 @@ PRODUCT_PACKAGES += \
     make_ext4fs \
     resize2fs \
     setup_fs
-    
-# Sensor Calibration
-PRODUCT_PACKAGES += libem_sensor_jni
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=8
 
