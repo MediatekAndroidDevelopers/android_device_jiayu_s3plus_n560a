@@ -10,8 +10,8 @@ import /init.${ro.hardware}.rc
 import /init.usb.configfs.rc
 import /init.${ro.zygote}.rc
 import /init.trace.rc
-# Include AICP's extra init file
-import /init.aicp.rc
+# Include CM's extra init file
+import /init.cm.rc
 import /init.performance.rc
 import /init.modem.rc
 
