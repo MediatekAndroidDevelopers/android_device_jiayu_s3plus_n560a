@@ -96,8 +96,8 @@ service ccci_fsd /system/bin/ccci_fsd 0
     oneshot
 
 service ccci_mdinit /system/bin/ccci_mdinit 0
-    user root
-    group root radio system
+    user system
+    group radio system
     class core
     oneshot
 
