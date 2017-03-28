@@ -10,8 +10,10 @@ PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 TARGET_OTA_ASSERT_DEVICE := s3plus_n560a,S3H
 
 PRODUCT_PACKAGES += \
-   libmtk_symbols \
-   libstlport
+    libmtkshim_log \
+    libmtkshim_ui \
+    libmtkshim_audio \
+    libstlport
 
 # Lights
 PRODUCT_PACKAGES += \
