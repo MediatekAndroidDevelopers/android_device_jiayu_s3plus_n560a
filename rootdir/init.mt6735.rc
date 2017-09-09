@@ -70,6 +70,13 @@ on post-fs
     chmod 0660 /dev/stpgps
     chown gps gps /dev/stpgps
 
+on late-fs
+    # boot time fs tune
+    write /sys/block/mmcblk0/queue/iostats 0
+    write /sys/block/mmcblk0/queue/iosched/slice_idle 0
+    write /sys/block/mmcblk0/queue/read_ahead_kb 2048
+    write /sys/block/mmcblk0/queue/nr_requests 256
+
 on post-fs-data
     chown root system /nvdata
     chmod 0771 /nvdata
@@ -79,6 +86,7 @@ on post-fs-data
 
     # Set SELinux security contexts on upgrade or policy update.
     restorecon_recursive /nvdata
+    restorecon /data/nvram
 
     # rfkill
     chmod 0660 /dev/rfkill
@@ -461,164 +469,7 @@ on property:ro.board.platform=mt6753
     chmod 0660 /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq
     write /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq 1300000
 
-on property:vold.decrypt=trigger_reset_main
-    start stop_modem
-
-on property:vold.decrypt=trigger_restart_min_framework
-    start start_modem
-    start msensord
-    start permission_check
-
-on property:vold.decrypt=trigger_restart_framework
-    start nvram_daemon
-    start start_modem
-    start msensord
-    start permission_check
-
-on property:vold.decrypt=trigger_shutdown_framework
-    start stop_modem
-
-service stop_modem /system/bin/md_ctrl 0
-    class main
-    disabled
-    oneshot
-
-service start_modem /system/bin/md_ctrl 1
-    class main
-    disabled
-    oneshot
-
-service nvram_daemon /system/bin/nvram_daemon
-    class main
-    user root
-    group system
-    oneshot
-
-service pq /system/bin/pq
-    class main
-    user system
-    group system graphics
-    oneshot
-
-#
-# MTK Wi-Fi related services (Begin)
-#
-
-# monitor property and power on/off wlan
-on property:wlan.driver.status=ok
-    write /dev/wmtWifi "1"
-
-on property:wlan.driver.status=unloaded
-    write /dev/wmtWifi "0"
-
-service p2p_supplicant /system/bin/wpa_supplicant \
-    -iwlan0 -Dnl80211 -c/data/misc/wifi/wpa_supplicant.conf \
-    -I/system/etc/wifi/wpa_supplicant_overlay.conf -N \
-    -ip2p0 -Dnl80211 -c/data/misc/wifi/p2p_supplicant.conf -e/data/misc/wifi/entropy.bin -dd \
-    -I/system/etc/wifi/p2p_supplicant_overlay.conf \
-    -O/data/misc/wifi/sockets -g@android:wpa_wlan0
-    #   we will start as root and wpa_supplicant will switch to user wifi
-    #   after setting up the capabilities required for WEXT
-    #   user wifi
-    #   group wifi inet keystore
-    class main
-    socket wpa_wlan0 dgram 660 wifi wifi
-    disabled
-    oneshot
-
-service wpa_supplicant /system/bin/wpa_supplicant \
-    -iwlan0 -Dnl80211 -c/data/misc/wifi/wpa_supplicant.conf -e/data/misc/wifi/entropy.bin -dd \
-    -I/system/etc/wifi/wpa_supplicant_overlay.conf \
-    -O/data/misc/wifi/sockets -g@android:wpa_wlan0
-    #   we will start as root and wpa_supplicant will switch to user wifi
-    #   after setting up the capabilities required for WEXT
-    #   user wifi
-    #   group wifi inet keystore
-    class main
-    socket wpa_wlan0 dgram 660 wifi wifi
-    disabled
-    oneshot
-
-#
-# MTK Wi-Fi related services (End)
-#
-
-# GPS
-service agpsd /system/bin/mtk_agpsd
-    class main
-    socket agpsd stream 660 gps system
-    socket agpsd2 stream 660 gps inet
-    socket agpsd3 stream 660 gps inet
-    user gps
-    group gps radio inet sdcard_r sdcard_rw misc
-
-service wifi2agps /system/bin/wifi2agps
-    class main
-    user wifi
-    group gps inet
-
-service mnld /system/xbin/mnld
-    class main
-    user gps
-    group gps inet misc sdcard_rw sdcard_r media_rw system
-    socket mnld stream 660 gps system
-
-#
-# sensor service (begin)
-#
-
-service msensord /system/bin/msensord
-    class main
-    oneshot
-
-service qmc6983d /system/bin/qmc6983d
-    disabled
-    user system
-    group system
-    class main
-    oneshot
-
-#
-# sensor service (end)
-#
-
-#
-# emsvr service (start)
-#
-service emsvr /system/bin/em_svr
-    class main
-    user system
-    group system radio diag
-
-#
-# emsvr service (end)
-#
-
-# Thermal
-service thermal_manager /system/bin/thermal_manager
-    class main
-    user root
-    group system
-    oneshot
-
-service fuelgauged /system/bin/fuelgauged
-    class main
-    user system
-    group system
-
-service wmtLoader /system/bin/wmt_loader
-    user root
-    group root
-    class core
-    oneshot
-
-service conn_launcher /system/bin/6620_launcher -p /system/etc/firmware/
-    user system
-    group system
-    class core
-
 # Charger
-service charger /sbin/healthd -c
+service charger /charger
     class charger
-    critical
-    seclabel u:r:healthd:s0
+    seclabel u:r:charger:s0
