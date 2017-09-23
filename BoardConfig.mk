@@ -78,7 +78,7 @@ TARGET_PROVIDES_LIBLIGHT := true
 
 # Recovery
 BOARD_HAS_NO_SELECT_BUTTON := true
-TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/rootdir/recovery.fstab
+TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/rootdir/fstab.mt6735
 # TWRP-specific
 ifeq ($(RECOVERY_VARIANT), twrp)
 DEVICE_RESOLUTION := 1080x1920
