@@ -45,16 +45,16 @@ persist.radio.fd.off.r8.counter=50
 ro.mtk_flight_mode_power_off_md=1
 ro.mtk_sim_hot_swap=1
 ro.mtk_world_phone=1
+ro.mtk_md_world_mode_support=1
 ro.mtk_cta_set=1
 ro.mtk_lte_support=1
 ro.mtk_rild_read_imsi=1
-ro.mtk_protocol1_rat_config=Lf/Lt/W/G
+ro.mtk_protocol1_rat_config=Lf/Lt/W/T/G
 persist.radio.mtk_ps2_rat=G
-persist.radio.mtk_ps3_rat=G
 ro.boot.opt_using_default=1
 ro.boot.opt_md1_support=5
-ro.boot.opt_c2k_lte_mode=0
-ro.boot.opt_ps1_rat=Lf/Lt/W/G
+ro.boot.opt_c2k_lte_mode=1
+ro.boot.opt_ps1_rat=Lf/Lt/W/T/G
 ro.boot.opt_lte_support=1
 
 # other things
