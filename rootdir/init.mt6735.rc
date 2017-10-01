@@ -27,9 +27,9 @@ on post-fs
     chown system system /protect_s
     chmod 0770 /protect_s
 
-    mkdir /nvdata/APCFG 0770 system camera
-    mkdir /nvdata/APCFG/APRDCL 0770 system camera
-    mkdir /nvdata/APCFG/APRDEB 0770 system camera
+    mkdir /nvdata/APCFG 0770 root camera
+    mkdir /nvdata/APCFG/APRDCL 0770 root camera
+    mkdir /nvdata/APCFG/APRDEB 0770 root camera
     mkdir /nvdata/md     0770 system radio
     mkdir /nvdata/md_cmn 0770 system radio
     mkdir /nvdata/media  0770 media audio
