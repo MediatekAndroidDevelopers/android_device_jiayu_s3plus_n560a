@@ -9,9 +9,6 @@ PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 # Recovery allowed devices
 TARGET_OTA_ASSERT_DEVICE := s3plus_n560a,S3H
 
-PRODUCT_PACKAGES += \
-    libstlport
-
 # Manifest
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/manifest.xml:system/vendor/manifest.xml
