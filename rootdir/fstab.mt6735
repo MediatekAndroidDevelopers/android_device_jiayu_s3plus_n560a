@@ -18,3 +18,4 @@
 
 /dev/block/platform/mtk-msdc.0/11230000.MSDC0/by-name/boot          /boot           emmc  defaults defaults
 /dev/block/platform/mtk-msdc.0/11230000.MSDC0/by-name/recovery      /recovery       emmc  defaults defaults
+/dev/block/platform/mtk-msdc.0/11230000.MSDC0/by-name/para          /misc           emmc  defaults defaults
