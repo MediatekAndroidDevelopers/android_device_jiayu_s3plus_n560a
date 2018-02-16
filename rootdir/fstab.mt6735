@@ -11,7 +11,6 @@
 /dev/block/platform/mtk-msdc.0/11230000.MSDC0/by-name/protect1   /protect_f   ext4   noatime,nosuid,nodev,noauto_da_alloc,commit=1,nodelalloc,barrier=1   wait,check,formattable
 /dev/block/platform/mtk-msdc.0/11230000.MSDC0/by-name/protect2   /protect_s   ext4   noatime,nosuid,nodev,noauto_da_alloc,commit=1,nodelalloc,barrier=1   wait,check,formattable
 /dev/block/platform/mtk-msdc.0/11230000.MSDC0/by-name/nvdata     /nvdata      ext4   noatime,nosuid,nodev,noauto_da_alloc,discard,barrier=1               wait,check,formattable
-/dev/block/platform/mtk-msdc.0/11230000.MSDC0/by-name/frp        /persistent  emmc   defaults                                                             defaults
 
 /devices/mtk-msdc.0/11240000.MSDC1*  auto      vfat      defaults        voldmanaged=sdcard1:auto,encryptable=userdata
 /devices/platform/mt_usb*            auto      vfat      defaults        voldmanaged=usb:auto
@@ -19,3 +18,5 @@
 /dev/block/platform/mtk-msdc.0/11230000.MSDC0/by-name/boot          /boot           emmc  defaults defaults
 /dev/block/platform/mtk-msdc.0/11230000.MSDC0/by-name/recovery      /recovery       emmc  defaults defaults
 /dev/block/platform/mtk-msdc.0/11230000.MSDC0/by-name/para          /misc           emmc  defaults defaults
+/dev/block/platform/mtk-msdc.0/11230000.MSDC0/by-name/nvram         /nvram          emmc  defaults defaults
+/dev/block/platform/mtk-msdc.0/11230000.MSDC0/by-name/proinfo       /proinfo        emmc  defaults defaults
