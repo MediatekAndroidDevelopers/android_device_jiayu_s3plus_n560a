@@ -1,0 +1,4 @@
+# device specific syscalls
+sched_getparam: 1
+sched_getscheduler: 1
+sched_setaffinity: 1
