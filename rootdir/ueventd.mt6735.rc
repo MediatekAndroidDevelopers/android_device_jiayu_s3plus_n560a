@@ -70,7 +70,7 @@
 /dev/ion                  0664   system     system
 
 # CMDQ
-/dev/mtk_cmdq             0640   system     system
+/dev/mtk_cmdq             0644   system     system
 
 # Offload Service
 /dev/offloadservice       0660   media      media
