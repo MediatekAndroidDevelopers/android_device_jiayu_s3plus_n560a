@@ -6,9 +6,6 @@ DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 PRODUCT_AAPT_CONFIG := normal xhdpi xxhdpi
 PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 
-# Recovery allowed devices
-TARGET_OTA_ASSERT_DEVICE := s3plus_n560a,S3H
-
 # Manifest
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/manifest.xml:system/vendor/manifest.xml
