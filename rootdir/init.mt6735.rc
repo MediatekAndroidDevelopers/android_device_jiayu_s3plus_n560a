@@ -1,10 +1,6 @@
 import init.mt6735.usb.rc
 import init.modem.rc
 
-on early-init
-    # Turn off backlight on blank
-    write /sys/class/leds/lcd-backlight/trigger "backlight"
-
 on init
     # mount points
     mkdir /protect_f 0770 system radio
