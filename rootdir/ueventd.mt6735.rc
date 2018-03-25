@@ -37,11 +37,11 @@
 /dev/DW9714AF             0660   system	    camera
 
 # Sensor
-/dev/hwmsensor            0660   system	    nvram
-/dev/msensor              0660   system	    nvram
+/dev/hwmsensor            0660   system	    system
+/dev/msensor              0660   system	    system
 /dev/gsensor              0660   system	    nvram
 /dev/als_ps               0660   radio	    nvram
-/dev/aal_als              0660   system	    nvram
+/dev/gyroscope            0660   system	    nvram
 /sys/class/misc/m_alsps_misc   alsactive         0660   system	    system
 /sys/class/misc/m_alsps_misc   alsbatch          0660   system	    system
 /sys/class/misc/m_alsps_misc   alsdelay          0660   system	    system
