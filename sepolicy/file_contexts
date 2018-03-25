@@ -1,2 +1,4 @@
 # Sysfs nodes
 /sys/devices/bus.2/11008000.I2C1/i2c-1/1-0020/gesture           u:object_r:sysfs_smartwake:s0
+
+/sys/devices/mtk-msdc.0/11230000.MSDC0/mmc_host/mmc0/mmc0:0001/block/mmcblk0/queue/scheduler     u:object_r:sysfs_perf_control:s0
