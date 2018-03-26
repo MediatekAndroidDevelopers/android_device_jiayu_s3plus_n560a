@@ -23,6 +23,11 @@
 
 # GPS
 /dev/stpgps               0660   gps        gps
+/sys/class/gpsdrv/gps   pwrctl     0660       gps     gps
+/sys/class/gpsdrv/gps   suspend    0660       gps     gps
+/sys/class/gpsdrv/gps   state      0660       gps     gps
+/sys/class/gpsdrv/gps   pwrsave    0660       gps     gps
+/sys/class/gpsdrv/gps   status     0660       gps     gps
 
 # FMRadio
 /dev/fm			              0660   system	    media
