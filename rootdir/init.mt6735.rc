@@ -5,7 +5,7 @@ on init
     # mount points
     mkdir /protect_f 0770 system radio
     mkdir /protect_s 0770 system radio
-    mkdir /nvdata    0770 root nvram
+    mkdir /nvdata    0775 root nvram
 
 on fs
     mount_all /fstab.mt6735
@@ -22,18 +22,21 @@ on post-fs
     # NVRAM
     copy /fstab.mt6755 /nvdata/fstab.mt6755
     exec u:r:nvram_perms:s0 -- /system/bin/chown -R nvram:nvram /nvdata
-    # This chmod does set 0660 for files and 0770 for dirs
-    exec u:r:nvram_perms:s0 -- /system/bin/chmod -R u+rwX,g+rwX,o-rwx /nvdata
+    exec u:r:nvram_perms:s0 -- /system/bin/chmod -R 0770 /nvdata
     chown root nvram /nvdata
-    mkdir /nvdata/APCFG 0770 root nvram
-    mkdir /nvdata/APCFG/APRDCL 0770 nvram nvram
+    chmod 0775 /nvdata
+    mkdir /nvdata/APCFG 0775 root nvram
+    mkdir /nvdata/APCFG/APRDCL 0775 nvram nvram
     mkdir /nvdata/APCFG/APRDEB 0770 root nvram
     mkdir /nvdata/md     0770 nvram nvram
     mkdir /nvdata/md_cmn 0770 nvram nvram
-    mkdir /nvdata/media  0770 nvram nvram
+    mkdir /nvdata/media  0775 nvram nvram
     # Kernel (root) needs access to these 2 files
     chown root nvram /nvdata/APCFG/APRDEB/WIFI
     chown root nvram /nvdata/APCFG/APRDEB/WIFI_CUSTOM
+    # Audio settings
+    chown system nvram /nvdata/APCFG/APRDCL/FILE_VER
+    chown system nvram /nvdata/media/Audio_ver1_Vol_custom
 
     restorecon_recursive /nvdata
 
