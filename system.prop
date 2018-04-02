@@ -57,6 +57,9 @@ ro.boot.opt_c2k_lte_mode=0
 ro.boot.opt_ps1_rat=Lf/Lt/W/T/G
 ro.boot.opt_lte_support=1
 
+# NFC
+ro.nfc.port=I2C
+
 # other things
 ro.mediatek.chip_ver=S01
 ro.mediatek.version.release=ALPS.L1.MP3.V2_VANZO6753.65U.L1_P45

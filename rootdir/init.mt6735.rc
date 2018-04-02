@@ -89,6 +89,9 @@ on post-fs-data
     # Thermal
     mkdir /data/.tp/ 0770 system system
 
+    # NFC
+    mkdir /data/nfc_socket 0770 nfc nfc
+
 on boot
     write /proc/sys/vm/dirty_writeback_centisecs 300
 

@@ -97,3 +97,6 @@
 
 # Sched 
 /dev/mtk_sched            0660   system     media
+
+# NFC
+/dev/mt6605               0660   nfc        nfc
