@@ -20,7 +20,7 @@ on post-fs
     chmod 0770 /protect_s
 
     # NVRAM
-    copy /fstab.mt6755 /nvdata/fstab.mt6755
+    copy /fstab.mt6735 /nvdata/fstab.mt6735
     exec u:r:nvram_perms:s0 -- /system/bin/chown -R nvram:nvram /nvdata
     exec u:r:nvram_perms:s0 -- /system/bin/chmod -R 0770 /nvdata
     chown root nvram /nvdata
