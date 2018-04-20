@@ -100,3 +100,11 @@
 
 # NFC
 /dev/mt6605               0660   nfc        nfc
+
+# LEDs
+/sys/class/leds/red      delay_on     0644  system   system
+/sys/class/leds/red      delay_off    0644  system   system
+/sys/class/leds/red      trigger      0644  system   system
+/sys/class/leds/green    delay_on     0644  system   system
+/sys/class/leds/green    delay_off    0644  system   system
+/sys/class/leds/green    trigger      0644  system   system
